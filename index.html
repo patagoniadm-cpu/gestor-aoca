@@ -350,7 +350,7 @@ function openModal(mode, task, blockId) {
     const title = document.getElementById('f-title').value.trim();
     if (!title) return;
     const now = new Date().toISOString();
-    const t = { title, block: document.getElementById('f-block').value, status: document.getElementById('f-status').value, date: document.getElementById('f-date').value, obs: document.getElementById('f-obs').value.trim(), updated: now };
+    const t = { title, block: document.getElementById('f-block').value, status: document.getElementById('f-status').value, date: (function(){ var v=document.getElementById('f-date').value; if(!v) return ''; var p=v.split('T')[0].split(' ')[0]; return p.match(/^\d{4}-\d{2}-\d{2}$/)?p:''; })(), obs: document.getElementById('f-obs').value.trim(), updated: now };
     if (mode==='edit' && task) {
       Object.assign(task, t);
       const idx = state.tasks.findIndex(x => x.id===task.id);

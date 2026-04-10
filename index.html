@@ -24,16 +24,12 @@
   --amber-bg: #FDF3E3;
   --rose: #8B2A4A;
   --rose-bg: #FBE9EF;
-  --gray: #5F5E5A;
-  --gray-bg: #F0EEE9;
   --radius: 10px;
   --radius-sm: 6px;
-  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-
-/* HEADER */
 .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 16px; position: sticky; top: 0; z-index: 50; }
 .header-inner { max-width: 680px; margin: 0 auto; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .logo { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; min-width: 120px; letter-spacing: -0.3px; }
@@ -48,18 +44,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .sync-dot.error { background: #C0392B; }
 .sync-dot.syncing { background: var(--amber); animation: pulse 1s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-
-/* FILTERS */
 .filters-bar { max-width: 680px; margin: 0 auto; padding: 10px 16px 0; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .filter-chip { font-size: 11px; font-weight: 500; padding: 4px 11px; border: 1px solid var(--border); border-radius: 20px; background: transparent; cursor: pointer; color: var(--text2); font-family: inherit; transition: all .15s; }
 .filter-chip.active { background: var(--text); color: #fff; border-color: var(--text); }
 .add-task-btn { margin-left: auto; font-size: 12px; font-weight: 500; padding: 5px 14px; border: 1px solid var(--accent); border-radius: var(--radius-sm); background: var(--accent); color: #fff; cursor: pointer; font-family: inherit; }
-.add-task-btn:hover { opacity: .9; }
-
-/* MAIN */
 .main { max-width: 680px; margin: 0 auto; padding: 12px 16px 80px; }
-
-/* BLOCKS */
 .block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; }
 .block-header { display: flex; align-items: center; gap: 9px; padding: 11px 14px; cursor: pointer; user-select: none; }
 .block-header:hover { background: var(--surface2); }
@@ -72,7 +61,6 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .task-list { padding: 6px; display: flex; flex-direction: column; gap: 4px; }
 .task-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; cursor: pointer; transition: border-color .15s, background .15s; }
 .task-card:hover { border-color: var(--border2); background: #fff; }
-.task-card:active { background: var(--surface2); }
 .task-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 5px; }
 .task-title { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; line-height: 1.4; }
 .status-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
@@ -87,13 +75,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .gcal-link:hover { background: var(--accent-bg); }
 .block-add-row { padding: 6px; border-top: 1px solid var(--border); }
 .block-add-btn { width: 100%; font-size: 12px; padding: 7px; border: 1px dashed var(--border2); border-radius: var(--radius-sm); background: transparent; cursor: pointer; color: var(--text3); font-family: inherit; }
-.block-add-btn:hover { color: var(--text2); border-color: var(--border2); background: var(--surface2); }
+.block-add-btn:hover { color: var(--text2); background: var(--surface2); }
 .empty-msg { font-size: 12px; color: var(--text3); padding: 14px; text-align: center; }
-
-/* CALENDAR */
 .cal-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .cal-nav { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
-.cal-nav button { font-size: 16px; width: 30px; height: 30px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text2); }
+.cal-nav button { font-size: 16px; width: 30px; height: 30px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: transparent; cursor: pointer; color: var(--text2); }
 .cal-nav button:hover { background: var(--surface2); }
 .cal-month { font-size: 14px; font-weight: 500; flex: 1; text-align: center; color: var(--text); }
 .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
@@ -109,43 +95,30 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .cal-legend { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--border); }
 .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text2); }
 .leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-
-/* MODAL */
-.overlay { position: fixed; inset: 0; background: rgba(26,25,22,.45); z-index: 200; display: flex; align-items: flex-end; justify-content: center; padding: 0; }
+.overlay { position: fixed; inset: 0; background: rgba(26,25,22,.45); z-index: 200; display: flex; align-items: flex-end; justify-content: center; }
 @media(min-width:500px){ .overlay { align-items: center; padding: 20px; } }
 .modal { background: var(--surface); border-radius: 16px 16px 0 0; width: 100%; max-width: 480px; padding: 20px; max-height: 90vh; overflow-y: auto; }
 @media(min-width:500px){ .modal { border-radius: var(--radius); } }
 .modal-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 16px; }
 .field { margin-bottom: 12px; }
 .field label { display: block; font-size: 11px; font-weight: 500; color: var(--text2); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .4px; }
-.field input, .field select, .field textarea {
-  width: 100%; font-size: 14px; font-family: 'DM Sans', sans-serif;
-  padding: 9px 12px; border: 1px solid var(--border2); border-radius: var(--radius-sm);
-  background: var(--bg); color: var(--text); outline: none;
-}
+.field input, .field select, .field textarea { width: 100%; font-size: 14px; font-family: 'DM Sans', sans-serif; padding: 9px 12px; border: 1px solid var(--border2); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); outline: none; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); background: #fff; }
 .field textarea { resize: vertical; min-height: 70px; }
 .modal-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
 .btn { font-size: 13px; font-weight: 500; padding: 9px 16px; border-radius: var(--radius-sm); cursor: pointer; font-family: inherit; border: 1px solid transparent; transition: all .15s; }
 .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); flex: 1; }
-.btn-primary:hover { opacity: .9; }
 .btn-secondary { background: transparent; color: var(--text2); border-color: var(--border2); }
 .btn-secondary:hover { background: var(--surface2); }
 .btn-danger { background: transparent; color: #C0392B; border-color: #E8B4B4; margin-right: auto; }
 .btn-danger:hover { background: #FDF0F0; }
 .btn-gcal { background: transparent; color: var(--accent); border-color: var(--accent-bg); font-size: 12px; padding: 9px 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-sm); }
 .btn-gcal:hover { background: var(--accent-bg); }
-
-/* TOAST */
 .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--text); color: #fff; font-size: 13px; padding: 10px 18px; border-radius: 20px; z-index: 300; opacity: 0; transition: opacity .3s; pointer-events: none; white-space: nowrap; }
 .toast.show { opacity: 1; }
-
-/* LOADING */
-.loading { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 30px; color: var(--text2); font-size: 13px; }
 </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-inner">
     <div class="logo">Gestor <span>AOCA</span></div>
@@ -159,7 +132,6 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
     </button>
   </div>
 </div>
-
 <div class="filters-bar" id="filters-bar">
   <button class="filter-chip active" data-status="all">Todos</button>
   <button class="filter-chip" data-status="pendiente">Pendiente</button>
@@ -168,17 +140,12 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
   <button class="filter-chip" data-status="listo">Listo</button>
   <button class="add-task-btn" id="add-task-btn">+ Tarea</button>
 </div>
-
 <div class="main">
   <div id="view-tareas"></div>
   <div id="view-cal" style="display:none"></div>
 </div>
-
 <div class="toast" id="toast"></div>
-
 <script>
-// ─── CONFIG ─────────────────────────────────────────────────────────────────
-// Pegá acá la URL del Web App de Apps Script después de publicarlo
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUQWtvTRzf96L24JqZ-Upna-gMwg5C8C0oYl5fWaTomyWea8Ahs5iNROGj9mJcIijD/exec';
 
 const BLOCKS = [
@@ -186,25 +153,24 @@ const BLOCKS = [
   {id:'bidding', label:'Bidding Book & Burós',       color:'#2D6A4F'},
   {id:'aoca360', label:'AOCA 360 – Sostenibilidad',  color:'#7A4A0E'},
   {id:'captiva', label:'Dashboard MICE / CAPTIVA',   color:'#8B2A4A'},
-  {id:'sectur',  label:'SECTUR & Destinos',           color:'#533AB7'},
+  {id:'sectur',  label:'SECTUR & Destinos',          color:'#533AB7'},
   {id:'patdm',   label:'Patagonia D&M / Consultora', color:'#0F6E56'},
   {id:'admin',   label:'Administración & Equipo',    color:'#5F5E5A'},
 ];
 
 const SEED_TASKS = [
-  {id:'t1',block:'bidding',title:'Recordar a burós completar ficha de administración',status:'encurso',date:'2026-04-15',obs:'Enviar WA al grupo de coordinación'},
-  {id:'t2',block:'bidding',title:'Reuniones individuales con cada buró',status:'pendiente',date:'2026-04-20',obs:'Agendar una por una – confirmar disponibilidad'},
-  {id:'t3',block:'mu',title:'Actualizar Gestor de Espacios con avances comerciales',status:'encurso',date:'',obs:'Sincronizar con Google Sheets'},
-  {id:'t4',block:'mu',title:'Completar informe comercial Excel',status:'encurso',date:'',obs:'Agregar columnas de confirmación y facturación'},
-  {id:'t5',block:'sectur',title:'Trabajar con SECTUR el HTML del Bidding para replicar destinos',status:'pendiente',date:'',obs:'Coordinar reunión con equipo técnico'},
-  {id:'t6',block:'aoca360',title:'Actualización documento AOCA 360 con equipo calidad SECTUR',status:'encurso',date:'',obs:'Incorporar feedback de la última revisión'},
-  {id:'t7',block:'captiva',title:'Avanzar construcción del Dashboard MICE',status:'encurso',date:'',obs:'Reunión con empresa TI – aprobación conseguida'},
-  {id:'t8',block:'captiva',title:'Pautar referentes territoriales para Dashboard',status:'pendiente',date:'',obs:'Coordinar con burós regionales'},
+  {id:'t1',block:'bidding',title:'Recordar a burós completar ficha de administración',status:'encurso',date:'2026-04-15',obs:'Enviar WA al grupo de coordinación',updated:''},
+  {id:'t2',block:'bidding',title:'Reuniones individuales con cada buró',status:'pendiente',date:'2026-04-20',obs:'Agendar una por una – confirmar disponibilidad',updated:''},
+  {id:'t3',block:'mu',title:'Actualizar Gestor de Espacios con avances comerciales',status:'encurso',date:'',obs:'Sincronizar con Google Sheets',updated:''},
+  {id:'t4',block:'mu',title:'Completar informe comercial Excel',status:'encurso',date:'',obs:'Agregar columnas de confirmación y facturación',updated:''},
+  {id:'t5',block:'sectur',title:'Trabajar con SECTUR el HTML del Bidding para replicar destinos',status:'pendiente',date:'',obs:'Coordinar reunión con equipo técnico',updated:''},
+  {id:'t6',block:'aoca360',title:'Actualización documento AOCA 360 con equipo calidad SECTUR',status:'encurso',date:'',obs:'Incorporar feedback de la última revisión',updated:''},
+  {id:'t7',block:'captiva',title:'Avanzar construcción del Dashboard MICE',status:'encurso',date:'',obs:'Reunión con empresa TI – aprobación conseguida',updated:''},
+  {id:'t8',block:'captiva',title:'Pautar referentes territoriales para Dashboard',status:'pendiente',date:'',obs:'Coordinar con burós regionales',updated:''},
 ];
 
-// ─── STATE ───────────────────────────────────────────────────────────────────
-const LS = 'aoca_gestor_v3';
-let state = { tasks: [], collapsed: {}, nextId: 100 };
+const LS = 'aoca_gestor_v4';
+let state = { tasks: [], collapsed: {} };
 let activeFilter = 'all';
 let currentView = 'tareas';
 let calDate = new Date(2026, 3, 1);
@@ -213,58 +179,59 @@ function loadLocal() {
   try {
     const d = localStorage.getItem(LS);
     if (d) { state = JSON.parse(d); }
-    else { state.tasks = SEED_TASKS; saveLocal(); }
-  } catch { state.tasks = SEED_TASKS; }
+    else { state.tasks = SEED_TASKS.map(t => ({...t})); saveLocal(); }
+  } catch { state.tasks = SEED_TASKS.map(t => ({...t})); }
 }
 function saveLocal() { try { localStorage.setItem(LS, JSON.stringify(state)); } catch {} }
 
-// ─── SYNC ────────────────────────────────────────────────────────────────────
-let syncConfigured = APPS_SCRIPT_URL !== 'TU_APPS_SCRIPT_URL_AQUI';
-
-async function syncToSheet() {
-  if (!syncConfigured) { showToast('Configurá la URL del Apps Script primero'); return; }
-  setSyncState('syncing', 'Sincronizando…');
-  try {
-    const res = await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'sync', tasks: state.tasks }),
-    });
-    const data = await res.json();
-    if (data.ok) {
-      if (data.tasks) { state.tasks = data.tasks; saveLocal(); renderAll(); }
-      setSyncState('ok', 'Sincronizado');
-      showToast('Sincronizado con Google Sheets');
-if (currentView==='cal') renderCal();
-    } else { setSyncState('error', 'Error'); showToast('Error al sincronizar'); }
-  } catch { setSyncState('error', 'Sin conexión'); showToast('Sin conexión'); }
-}
-
-function setSyncState(type, label) {
-  const dot = document.getElementById('sync-dot');
-  const lbl = document.getElementById('sync-label');
-  dot.className = 'sync-dot ' + type;
-  lbl.textContent = label;
-}
-
-// ─── UTILS ───────────────────────────────────────────────────────────────────
 function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function fmtDate(d) { if(!d) return ''; const [y,m,dd] = d.split('-'); return `${dd}/${m}`; }
+function fmtDate(d) { if(!d) return ''; const [y,m,dd] = d.split('-'); return dd+'/'+m; }
 function statusLabel(s) { return {pendiente:'Pendiente',encurso:'En curso',esperando:'Esperando',listo:'Listo'}[s]||s; }
 function blockById(id) { return BLOCKS.find(b=>b.id===id)||{color:'#888',label:id}; }
-function newId() { return 't'+(Date.now()); }
+function newId() { return 't'+Date.now(); }
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'), 2200);
+  setTimeout(()=>t.classList.remove('show'), 2500);
 }
 function gcalUrl(task) {
   if (!task.date) return null;
   const d = task.date.replace(/-/g,'');
-  const block = blockById(task.block);
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('['+block.label+'] '+task.title)}&dates=${d}/${d}&details=${encodeURIComponent(task.obs||'')}`;
+  const b = blockById(task.block);
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('['+b.label+'] '+task.title)+'&dates='+d+'/'+d+'&details='+encodeURIComponent(task.obs||'');
+}
+function setSyncState(type, label) {
+  document.getElementById('sync-dot').className = 'sync-dot' + (type ? ' '+type : '');
+  document.getElementById('sync-label').textContent = label;
 }
 
-// ─── RENDER TAREAS ───────────────────────────────────────────────────────────
+async function syncToSheet() {
+  setSyncState('syncing', 'Sincronizando…');
+  try {
+    const now = new Date().toISOString();
+    const tasksToSend = state.tasks.map(t => ({...t, updated: t.updated || now}));
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'sync', tasks: tasksToSend }),
+    });
+    const data = await res.json();
+    if (data.ok && data.tasks) {
+      state.tasks = data.tasks;
+      saveLocal();
+      renderTareas();
+      renderCal();
+      setSyncState('ok', 'Sincronizado');
+      showToast('Sincronizado correctamente');
+    } else {
+      setSyncState('error', 'Error');
+      showToast('Error al sincronizar');
+    }
+  } catch(err) {
+    setSyncState('error', 'Sin conexión');
+    showToast('Sin conexión');
+  }
+}
+
 function renderTareas() {
   const wrap = document.getElementById('view-tareas');
   wrap.innerHTML = '';
@@ -273,30 +240,20 @@ function renderTareas() {
     if (activeFilter !== 'all') tasks = tasks.filter(t => t.status === activeFilter);
     const collapsed = state.collapsed[block.id];
     const div = document.createElement('div'); div.className = 'block';
-    // header
     const hdr = document.createElement('div'); hdr.className = 'block-header';
-    hdr.innerHTML = `<div class="block-stripe" style="background:${block.color}"></div><span class="block-label">${block.label}</span><span class="block-badge">${tasks.length}</span><span class="block-chevron ${collapsed?'':'open'}">▾</span>`;
+    hdr.innerHTML = '<div class="block-stripe" style="background:'+block.color+'"></div><span class="block-label">'+block.label+'</span><span class="block-badge">'+tasks.length+'</span><span class="block-chevron '+(collapsed?'':'open')+'">▾</span>';
     hdr.onclick = () => { state.collapsed[block.id] = !collapsed; saveLocal(); renderTareas(); };
     div.appendChild(hdr);
     if (!collapsed) {
       const body = document.createElement('div'); body.className = 'block-body';
       const list = document.createElement('div'); list.className = 'task-list';
       if (tasks.length === 0) {
-        list.innerHTML = `<div class="empty-msg">Sin tareas${activeFilter!=='all'?' con este estado':''}</div>`;
+        list.innerHTML = '<div class="empty-msg">Sin tareas'+(activeFilter!=='all'?' con este estado':'')+'</div>';
       } else {
         tasks.forEach(task => {
           const gcal = gcalUrl(task);
           const card = document.createElement('div'); card.className = 'task-card';
-          card.innerHTML = `
-            <div class="task-top">
-              <span class="task-title">${esc(task.title)}</span>
-              <span class="status-badge s-${task.status}">${statusLabel(task.status)}</span>
-            </div>
-            <div class="task-meta">
-              ${task.date ? `<span class="task-date">${fmtDate(task.date)}</span>` : ''}
-              ${gcal ? `<a class="gcal-link" href="${gcal}" target="_blank" onclick="event.stopPropagation()">+ GCal</a>` : ''}
-              <span class="task-obs">${esc(task.obs)}</span>
-            </div>`;
+          card.innerHTML = '<div class="task-top"><span class="task-title">'+esc(task.title)+'</span><span class="status-badge s-'+task.status+'">'+statusLabel(task.status)+'</span></div><div class="task-meta">'+(task.date?'<span class="task-date">'+fmtDate(task.date)+'</span>':'')+(gcal?'<a class="gcal-link" href="'+gcal+'" target="_blank" onclick="event.stopPropagation()">+ GCal</a>':'')+'<span class="task-obs">'+esc(task.obs)+'</span></div>';
           card.onclick = () => openModal('edit', task);
           list.appendChild(card);
         });
@@ -313,20 +270,13 @@ function renderTareas() {
   });
 }
 
-// ─── RENDER CALENDARIO ───────────────────────────────────────────────────────
 function renderCal() {
   const wrap = document.getElementById('view-cal');
   wrap.innerHTML = '';
   const y = calDate.getFullYear(), m = calDate.getMonth();
   const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
   const calEl = document.createElement('div'); calEl.className = 'cal-wrap';
-  // nav
-  calEl.innerHTML = `<div class="cal-nav">
-    <button id="cal-prev">‹</button>
-    <span class="cal-month">${months[m]} ${y}</span>
-    <button id="cal-next">›</button>
-  </div>`;
-  // grid
+  calEl.innerHTML = '<div class="cal-nav"><button id="cal-prev">‹</button><span class="cal-month">'+months[m]+' '+y+'</span><button id="cal-next">›</button></div>';
   const grid = document.createElement('div'); grid.className = 'cal-grid';
   ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'].forEach(d => {
     const el = document.createElement('div'); el.className = 'cal-dayname'; el.textContent = d; grid.appendChild(el);
@@ -339,40 +289,38 @@ function renderCal() {
     if (!byDate[t.date]) byDate[t.date] = [];
     byDate[t.date].push(t);
   });
-  // prev month padding
   for (let i = 0; i < firstDay; i++) {
     const prev = new Date(y, m, -firstDay+i+2);
     const cell = document.createElement('div'); cell.className = 'cal-cell dim';
-    cell.innerHTML = `<div class="cal-num">${prev.getDate()}</div>`; grid.appendChild(cell);
+    cell.innerHTML = '<div class="cal-num">'+prev.getDate()+'</div>'; grid.appendChild(cell);
   }
   for (let d = 1; d <= daysInMonth; d++) {
     const isToday = today.getFullYear()===y && today.getMonth()===m && today.getDate()===d;
-    const dateStr = `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dateStr = y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
     const dayTasks = byDate[dateStr] || [];
-    const cell = document.createElement('div'); cell.className = 'cal-cell' + (isToday?' today':'');
-    let html = `<div class="cal-num">${d}</div>`;
+    const cell = document.createElement('div'); cell.className = 'cal-cell'+(isToday?' today':'');
+    let html = '<div class="cal-num">'+d+'</div>';
     dayTasks.slice(0,3).forEach(t => {
       const col = blockById(t.block).color;
-      html += `<div class="cal-evt" style="background:${col}22;color:${col}" title="${esc(t.title)}">${esc(t.title)}</div>`;
+      html += '<div class="cal-evt" style="background:'+col+'22;color:'+col+'" title="'+esc(t.title)+'">'+esc(t.title)+'</div>';
     });
-    if (dayTasks.length > 3) html += `<div class="cal-more">+${dayTasks.length-3} más</div>`;
+    if (dayTasks.length > 3) html += '<div class="cal-more">+' +(dayTasks.length-3)+' más</div>';
     cell.innerHTML = html;
-    if (dayTasks.length === 1) cell.style.cursor = 'pointer', cell.onclick = () => openModal('edit', dayTasks[0]);
+    if (dayTasks.length === 1) { cell.style.cursor='pointer'; cell.onclick = () => openModal('edit', dayTasks[0]); }
     grid.appendChild(cell);
   }
   const used = firstDay + daysInMonth;
   const remaining = (7 - used%7) % 7;
   for (let i = 1; i <= remaining; i++) {
     const cell = document.createElement('div'); cell.className = 'cal-cell dim';
-    cell.innerHTML = `<div class="cal-num">${i}</div>`; grid.appendChild(cell);
+    cell.innerHTML = '<div class="cal-num">'+i+'</div>'; grid.appendChild(cell);
   }
   calEl.appendChild(grid);
-  // legend
   const legend = document.createElement('div'); legend.className = 'cal-legend';
-  const monthStr = `${y}-${String(m+1).padStart(2,'0')}`;
+  const monthStr = y+'-'+String(m+1).padStart(2,'0');
   BLOCKS.forEach(b => {
     if (state.tasks.some(t => t.block===b.id && t.date && t.date.startsWith(monthStr))) {
-      legend.innerHTML += `<div class="leg-item"><div class="leg-dot" style="background:${b.color}"></div><span>${b.label}</span></div>`;
+      legend.innerHTML += '<div class="leg-item"><div class="leg-dot" style="background:'+b.color+'"></div><span>'+b.label+'</span></div>';
     }
   });
   calEl.appendChild(legend);
@@ -381,34 +329,19 @@ function renderCal() {
   document.getElementById('cal-next').onclick = () => { calDate = new Date(y, m+1, 1); renderCal(); };
 }
 
-// ─── MODAL ───────────────────────────────────────────────────────────────────
 function openModal(mode, task, blockId) {
   const overlay = document.createElement('div'); overlay.className = 'overlay'; overlay.id = 'overlay';
-  const blockOpts = BLOCKS.map(b => `<option value="${b.id}"${(task&&task.block===b.id)||(blockId===b.id)?' selected':''}>${b.label}</option>`).join('');
+  const blockOpts = BLOCKS.map(b => '<option value="'+b.id+'"'+((task&&task.block===b.id)||(blockId===b.id)?' selected':'')+'>'+b.label+'</option>').join('');
   const gcal = task ? gcalUrl(task) : null;
-  overlay.innerHTML = `<div class="modal">
-    <div class="modal-title">${mode==='edit'?'Editar tarea':'Nueva tarea'}</div>
-    <div class="field"><label>Título</label><input type="text" id="f-title" value="${task?esc(task.title):''}" placeholder="¿Qué hay que hacer?"></div>
-    <div class="field"><label>Bloque / Proyecto</label><select id="f-block">${blockOpts}</select></div>
-    <div class="field"><label>Estado</label><select id="f-status">
-      ${['pendiente','encurso','esperando','listo'].map(s=>`<option value="${s}"${task&&task.status===s?' selected':''}>${statusLabel(s)}</option>`).join('')}
-    </select></div>
-    <div class="field"><label>Fecha</label><input type="date" id="f-date" value="${task?task.date:''}"></div>
-    <div class="field"><label>Observaciones</label><textarea id="f-obs" placeholder="Notas, contacto, contexto…">${task?esc(task.obs||''):''}</textarea></div>
-    <div class="modal-actions">
-      ${mode==='edit'?`<button class="btn btn-danger" id="btn-del">Eliminar</button>`:''}
-      <button class="btn btn-secondary" id="btn-cancel">Cancelar</button>
-      ${gcal?`<a class="btn-gcal" href="${gcal}" target="_blank">📅 GCal</a>`:''}
-      <button class="btn btn-primary" id="btn-save">Guardar</button>
-    </div>
-  </div>`;
+  overlay.innerHTML = '<div class="modal"><div class="modal-title">'+(mode==='edit'?'Editar tarea':'Nueva tarea')+'</div><div class="field"><label>Título</label><input type="text" id="f-title" value="'+(task?esc(task.title):'')+'" placeholder="¿Qué hay que hacer?"></div><div class="field"><label>Bloque / Proyecto</label><select id="f-block">'+blockOpts+'</select></div><div class="field"><label>Estado</label><select id="f-status">'+['pendiente','encurso','esperando','listo'].map(s=>'<option value="'+s+'"'+(task&&task.status===s?' selected':'')+'>'+statusLabel(s)+'</option>').join('')+'</select></div><div class="field"><label>Fecha</label><input type="date" id="f-date" value="'+(task?task.date:'')+'"></div><div class="field"><label>Observaciones</label><textarea id="f-obs" placeholder="Notas, contacto, contexto…">'+(task?esc(task.obs||''):'')+'</textarea></div><div class="modal-actions">'+(mode==='edit'?'<button class="btn btn-danger" id="btn-del">Eliminar</button>':'')+'<button class="btn btn-secondary" id="btn-cancel">Cancelar</button>'+(gcal?'<a class="btn-gcal" href="'+gcal+'" target="_blank">GCal</a>':'')+'<button class="btn btn-primary" id="btn-save">Guardar</button></div></div>';
   document.body.appendChild(overlay);
   overlay.addEventListener('click', e => { if (e.target===overlay) closeModal(); });
   document.getElementById('btn-cancel').onclick = closeModal;
   document.getElementById('btn-save').onclick = () => {
     const title = document.getElementById('f-title').value.trim();
     if (!title) return;
-    const t = { title, block: document.getElementById('f-block').value, status: document.getElementById('f-status').value, date: document.getElementById('f-date').value, obs: document.getElementById('f-obs').value.trim() };
+    const now = new Date().toISOString();
+    const t = { title, block: document.getElementById('f-block').value, status: document.getElementById('f-status').value, date: document.getElementById('f-date').value, obs: document.getElementById('f-obs').value.trim(), updated: now };
     if (mode==='edit' && task) {
       Object.assign(task, t);
       const idx = state.tasks.findIndex(x => x.id===task.id);
@@ -416,22 +349,18 @@ function openModal(mode, task, blockId) {
     } else {
       state.tasks.push({ id: newId(), ...t });
     }
-    saveLocal(); closeModal(); renderAll();
+    saveLocal(); closeModal(); renderTareas(); renderCal();
     showToast(mode==='edit'?'Tarea actualizada':'Tarea agregada');
   };
   if (mode==='edit') document.getElementById('btn-del').onclick = () => {
     state.tasks = state.tasks.filter(t => t.id !== task.id);
-    saveLocal(); closeModal(); renderAll();
+    saveLocal(); closeModal(); renderTareas(); renderCal();
     showToast('Tarea eliminada');
   };
-  setTimeout(() => document.getElementById('f-title').focus(), 100);
+  setTimeout(() => { const f = document.getElementById('f-title'); if(f) f.focus(); }, 100);
 }
 function closeModal() { const o = document.getElementById('overlay'); if(o) o.remove(); }
 
-// ─── RENDER ALL ──────────────────────────────────────────────────────────────
-function renderAll() { renderTareas(); if (currentView==='cal') renderCal(); }
-
-// ─── EVENTS ──────────────────────────────────────────────────────────────────
 document.getElementById('tab-tareas').onclick = () => {
   currentView = 'tareas';
   document.getElementById('view-tareas').style.display = '';
@@ -458,14 +387,9 @@ document.getElementById('filters-bar').onclick = e => {
 document.getElementById('add-task-btn').onclick = () => openModal('new', null, null);
 document.getElementById('sync-btn').onclick = syncToSheet;
 
-// ─── INIT ────────────────────────────────────────────────────────────────────
 loadLocal();
 renderTareas();
-if (syncConfigured) {
-  setSyncState('', 'Sincronizar');
-} else {
-  setSyncState('', 'Configurar sync');
-}
+setSyncState('', 'Sincronizar');
 </script>
 </body>
 </html>

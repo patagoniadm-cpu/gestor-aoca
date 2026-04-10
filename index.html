@@ -188,7 +188,7 @@ function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;'
 function fmtDate(d) { if(!d) return ''; const [y,m,dd] = d.split('-'); return dd+'/'+m; }
 function statusLabel(s) { return {pendiente:'Pendiente',encurso:'En curso',esperando:'Esperando',listo:'Listo'}[s]||s; }
 function blockById(id) { return BLOCKS.find(b=>b.id===id)||{color:'#888',label:id}; }
-function newId() { return 't'+Date.now(); }
+function newId() { return 't'+(Date.now()%100000)+'_'+Math.floor(Math.random()*1000); }
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
@@ -299,14 +299,23 @@ function renderCal() {
     const dateStr = y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
     const dayTasks = byDate[dateStr] || [];
     const cell = document.createElement('div'); cell.className = 'cal-cell'+(isToday?' today':'');
-    let html = '<div class="cal-num">'+d+'</div>';
-    dayTasks.slice(0,3).forEach(t => {
-      const col = blockById(t.block).color;
-      html += '<div class="cal-evt" style="background:'+col+'22;color:'+col+'" title="'+esc(t.title)+'">'+esc(t.title)+'</div>';
+    const numEl = document.createElement('div'); numEl.className = 'cal-num'; numEl.textContent = d;
+    cell.appendChild(numEl);
+    dayTasks.slice(0,3).forEach(function(task) {
+      const col = blockById(task.block).color;
+      const evt = document.createElement('div');
+      evt.className = 'cal-evt';
+      evt.style.background = col+'22';
+      evt.style.color = col;
+      evt.title = task.title;
+      evt.textContent = task.title;
+      evt.onclick = function(e) { e.stopPropagation(); openModal('edit', task); };
+      cell.appendChild(evt);
     });
-    if (dayTasks.length > 3) html += '<div class="cal-more">+' +(dayTasks.length-3)+' más</div>';
-    cell.innerHTML = html;
-    if (dayTasks.length === 1) { cell.style.cursor='pointer'; cell.onclick = () => openModal('edit', dayTasks[0]); }
+    if (dayTasks.length > 3) {
+      const more = document.createElement('div'); more.className = 'cal-more';
+      more.textContent = '+'+(dayTasks.length-3)+' más'; cell.appendChild(more);
+    }
     grid.appendChild(cell);
   }
   const used = firstDay + daysInMonth;

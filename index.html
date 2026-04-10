@@ -219,7 +219,7 @@ function loadLocal() {
 function saveLocal() { try { localStorage.setItem(LS, JSON.stringify(state)); } catch {} }
 
 // ─── SYNC ────────────────────────────────────────────────────────────────────
-let syncConfigured = APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbwUQWtvTRzf96L24JqZ-Upna-gMwg5C8C0oYl5fWaTomyWea8Ahs5iNROGj9mJcIijD/exec';
+let syncConfigured = APPS_SCRIPT_URL !== 'TU_APPS_SCRIPT_URL_AQUI';
 
 async function syncToSheet() {
   if (!syncConfigured) { showToast('Configurá la URL del Apps Script primero'); return; }

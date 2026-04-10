@@ -234,6 +234,7 @@ async function syncToSheet() {
       if (data.tasks) { state.tasks = data.tasks; saveLocal(); renderAll(); }
       setSyncState('ok', 'Sincronizado');
       showToast('Sincronizado con Google Sheets');
+if (currentView==='cal') renderCal();
     } else { setSyncState('error', 'Error'); showToast('Error al sincronizar'); }
   } catch { setSyncState('error', 'Sin conexión'); showToast('Sin conexión'); }
 }
